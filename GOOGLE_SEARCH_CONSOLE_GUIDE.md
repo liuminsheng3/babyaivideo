@@ -3,8 +3,8 @@
 ## ✅ Pre-Submission Checklist (Already Completed)
 
 Your website is ready for Google submission with:
-- ✅ **Sitemap.xml** at: https://www.babyaivideo.com/sitemap.xml
-- ✅ **Robots.txt** at: https://www.babyaivideo.com/robots.txt
+- ✅ **Sitemap.xml** at: https://babyaivideo.com/sitemap.xml
+- ✅ **Robots.txt** at: https://babyaivideo.com/robots.txt
 - ✅ **SEO Meta Tags** (title, description, keywords)
 - ✅ **Open Graph Tags** for social sharing
 - ✅ **Structured Data** (JSON-LD) for Product and FAQ
@@ -20,9 +20,9 @@ Your website is ready for Google submission with:
 3. Click "Add property"
 
 ### Step 2: Add Your Website
-1. Choose **Domain** property type
-2. Enter: `babyaivideo.com` (without https://)
-3. Or choose **URL prefix** and enter: `https://www.babyaivideo.com`
+1. Choose **URL prefix** (Recommended)
+2. Enter: `https://babyaivideo.com` (without www)
+3. Or choose **Domain** property and enter: `babyaivideo.com`
 
 ### Step 3: Verify Ownership
 
@@ -51,15 +51,18 @@ Your website is ready for Google submission with:
 
 ### Step 4: Submit Sitemap
 1. After verification, go to **Sitemaps** in the left menu
-2. Enter: `sitemap.xml`
+2. Enter the FULL URL: `https://babyaivideo.com/sitemap.xml`
+   - ⚠️ **Important**: Use the complete URL without www
+   - ✅ Correct: `https://babyaivideo.com/sitemap.xml`
+   - ❌ Wrong: `sitemap.xml` (just the filename)
 3. Click **Submit**
 4. Google will show "Success" when processed
 
 ### Step 5: Request Indexing
 1. Go to **URL Inspection** tool
-2. Enter: `https://www.babyaivideo.com/en`
+2. Enter: `https://babyaivideo.com/en`
 3. Click **Request Indexing**
-4. Repeat for: `https://www.babyaivideo.com/zh`
+4. Repeat for: `https://babyaivideo.com/zh`
 
 ## 🎯 Additional Optimization Steps
 
@@ -120,7 +123,7 @@ After 2-3 days, check:
 
 Test your structured data:
 1. Go to: https://search.google.com/test/rich-results
-2. Enter: https://www.babyaivideo.com
+2. Enter: https://babyaivideo.com
 3. Check for any errors or warnings
 
 ## ✨ Tips for Faster Indexing
