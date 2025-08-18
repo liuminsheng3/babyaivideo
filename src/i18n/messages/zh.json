@@ -1,0 +1,332 @@
+{
+  "meta": {
+    "title": "Baby AI 视频生成器 - 一键把视频变成萌娃风格",
+    "description": "Baby AI 视频生成器使用先进的AI技术，将您的视频转换成可爱的宝宝风格。上传任何视频，几分钟内即可获得萌娃版本。"
+  },
+  "hero": {
+    "title": "Baby AI 视频生成器 —— 一键把你的视频变成萌娃风格",
+    "subtitle": "使用我们先进的AI技术，将任何视频转换成可爱的宝宝版本。上传、自定义、下载，只需几分钟。体验AI驱动的宝宝面部转换魔法。",
+    "cta": "免费试用",
+    "creditsIncluded": "开始即送10个免费积分",
+    "viewExamples": "查看示例",
+    "demoPreview": "演示视频预览",
+    "stats": {
+      "videosProcessed": "已处理视频",
+      "videoQuality": "视频质量",
+      "averageTime": "平均处理时间"
+    }
+  },
+  "howItWorks": {
+    "title": "使用步骤",
+    "step1": {
+      "title": "上传",
+      "description": "上传您的视频（MP4/MOV，最大300MB）"
+    },
+    "step2": {
+      "title": "自定义",
+      "description": "调整设置和风格偏好"
+    },
+    "step3": {
+      "title": "下载",
+      "description": "几分钟内获得萌娃风格视频"
+    }
+  },
+  "features": {
+    "title": "强大功能",
+    "subtitle": "使用AI创建惊人的宝宝风格视频所需的一切",
+    "batch": {
+      "title": "批量处理",
+      "description": "同时处理多个视频，节省时间并提高生产力"
+    },
+    "transformation": {
+      "title": "面部和身体转换",
+      "description": "使用先进的AI技术为视频中的人物进行完整的宝宝风格改造"
+    },
+    "quality": {
+      "title": "高保真度",
+      "description": "使用我们最先进的处理技术保持高达1080p的视频质量"
+    },
+    "privacy": {
+      "title": "隐私优先",
+      "description": "您的视频安全存储，绝不用于训练我们的模型"
+    }
+  },
+  "gallery": {
+    "title": "效果对比展示",
+    "subtitle": "查看我们的宝宝AI视频生成器创造的惊人转换效果",
+    "viewMore": "查看更多示例",
+    "examples": {
+      "familyPortrait": "家庭合影",
+      "danceVideo": "舞蹈视频",
+      "birthdayParty": "生日派对",
+      "selfieVideo": "自拍视频",
+      "groupPhoto": "团体照片",
+      "weddingMoments": "婚礼时刻"
+    }
+  },
+  "faq": {
+    "title": "常见问题",
+    "subtitle": "关于我们的宝宝AI视频生成器您需要了解的一切",
+    "q1": {
+      "question": "Baby AI视频生成器是如何工作的？",
+      "answer": "我们的宝宝AI视频生成器使用先进的深度学习模型来分析视频中的面部特征，并将其转换为婴儿般的外观。AI单独处理每一帧同时保持一致性，产生平滑、逼真的婴儿转换，同时保留原始人物的身份特征。"
+    },
+    "q2": {
+      "question": "处理一个视频需要多长时间？",
+      "answer": "处理时间取决于视频长度和分辨率。一个10秒的720p视频通常需要2-3分钟。我们的宝宝AI视频生成器使用优化的GPU处理以获得快速结果。更长的视频或更高的分辨率可能需要额外的时间，但我们会在处理前向您显示预估时间。"
+    },
+    "q3": {
+      "question": "支持哪些视频格式？",
+      "answer": "我们支持H.264或HEVC编码的MP4和MOV文件，最大300MB。大多数手机和相机拍摄的视频都能与我们的AI宝宝面部视频生成器完美配合。为了获得最佳效果，我们建议使用720p或更高分辨率的清晰、光线充足的面部视频。"
+    },
+    "q4": {
+      "question": "使用费用是多少？",
+      "answer": "我们使用积分系统：512p分辨率每4秒消耗1个积分。更高分辨率按比例消耗更多积分。新用户可获得10个免费积分试用我们的宝宝AI视频生成器。积分包起价为50个积分9.99美元，批量购买有折扣。"
+    },
+    "q5": {
+      "question": "我的内容是否私密安全？",
+      "answer": "绝对安全。您的视频在上传和处理过程中都经过加密。我们绝不使用您的内容来训练我们的模型，并在7天后自动删除所有文件。我们的宝宝视频AI工具以隐私为先设计 - 您的内容完全属于您。"
+    },
+    "q6": {
+      "question": "我可以将生成的视频用于商业用途吗？",
+      "answer": "可以，您保留转换后视频的所有权利，可以用于商业用途。宝宝AI视频生成器创建的内容完全属于您。这使其非常适合内容创作者、营销人员和希望创建独特内容的企业。"
+    },
+    "q7": {
+      "question": "您的工具与滤镜或应用程序有什么不同？",
+      "answer": "与简单的滤镜不同，我们的AI宝宝视频制作器使用先进的神经网络进行完整的面部重建。我们调整面部比例、特征和表情，创造真实的婴儿外观，同时保持视频质量和所有帧的时间一致性。"
+    },
+    "q8": {
+      "question": "支持批量处理吗？",
+      "answer": "是的，高级用户可以同时处理多个视频。我们的宝宝面部AI视频生成器可以处理批量上传，非常适合需要高效转换多个视频的内容创作者和企业。"
+    },
+    "q9": {
+      "question": "如果我对结果不满意怎么办？",
+      "answer": "您可以使用不同的设置（如强度和引导参数）重试。如果问题持续存在，请联系客服寻求帮助或申请积分退款。我们希望您对宝宝风格视频完全满意，并提供支持帮助您获得最佳结果。"
+    },
+    "q10": {
+      "question": "有内容限制吗？",
+      "answer": "是的，我们禁止NSFW内容、暴力内容以及您不拥有版权的材料。我们的宝宝AI视频生成器专为家庭友好内容设计。我们使用自动内容审核确保所有上传内容符合我们的指导原则。"
+    },
+    "q11": {
+      "question": "AI可以处理一个视频中的多个面部吗？",
+      "answer": "可以！我们的宝宝视频生成器AI可以检测和转换单个视频中的多个面部。每个面部都以相同的高质量单独处理，非常适合团体视频、家庭内容或有多人的场景。"
+    },
+    "q12": {
+      "question": "如果需要帮助，如何获得支持？",
+      "answer": "我们提供多种支持渠道：发送电子邮件至support@babyaivideo.com，使用我们网站上的实时聊天，或查看我们的综合帮助中心。我们的支持团队通常在24小时内响应，可以帮助处理技术问题、账单问题或使用指导。"
+    }
+  },
+  "pricing": {
+    "title": "简单的积分制定价",
+    "subtitle": "按使用量付费",
+    "credits": "积分",
+    "popular": "最受欢迎",
+    "perSecond": "每4秒（512p）",
+    "buy": "立即购买"
+  },
+  "auth": {
+    "signIn": "登录",
+    "signUp": "注册",
+    "signOut": "退出",
+    "email": "电子邮箱",
+    "continueWithEmail": "使用邮箱继续",
+    "continueWithGoogle": "使用Google继续",
+    "checkEmail": "请查看邮箱中的登录链接"
+  },
+  "dashboard": {
+    "title": "控制台",
+    "credits": "积分",
+    "recentJobs": "最近任务",
+    "uploadNew": "上传新视频"
+  },
+  "upload": {
+    "title": "上传您的视频",
+    "dragDrop": "拖放视频到这里，或点击浏览",
+    "formats": "MP4或MOV格式，最大300MB",
+    "prompt": "提示词（可选）",
+    "promptPlaceholder": "描述您想要的转换效果...",
+    "negativePrompt": "负面提示词（可选）",
+    "negativePromptPlaceholder": "转换中要避免的内容...",
+    "advanced": "高级设置",
+    "keepAspect": "保持原始宽高比",
+    "estimatedCost": "预计消耗",
+    "process": "处理视频",
+    "processing": "处理中..."
+  },
+  "job": {
+    "status": {
+      "queued": "排队中",
+      "running": "运行中",
+      "generating": "生成中",
+      "postprocess": "后处理",
+      "finished": "已完成",
+      "failed": "失败",
+      "canceled": "已取消"
+    },
+    "download": "下载",
+    "preview": "预览",
+    "share": "分享",
+    "retry": "重试",
+    "cancel": "取消"
+  },
+  "footer": {
+    "company": "公司",
+    "about": "关于我们",
+    "blog": "博客",
+    "careers": "招聘",
+    "legal": "法律信息",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "dmca": "DMCA政策",
+    "cookiePolicy": "Cookie政策",
+    "support": "支持",
+    "help": "帮助中心",
+    "contact": "联系我们",
+    "status": "服务状态",
+    "email": "邮箱支持"
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "出现错误",
+    "retry": "重试",
+    "back": "返回",
+    "next": "下一步",
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "confirm": "确认"
+  },
+  "productIntro": {
+    "title": "什么是Baby AI视频生成器？",
+    "subtitle": "革命性的AI技术，将普通视频转换为可爱的宝宝风格内容",
+    "advanced": {
+      "title": "尖端AI技术触手可及",
+      "description": "我们的Baby AI视频生成器利用最先进的深度学习模型，专门针对数百万张婴儿面部和表情进行训练。该技术理解面部结构、比例和动作，创造出逼真的婴儿转换效果，同时保持原始人物的身份特征，增添不可抗拒的婴儿魅力。"
+    },
+    "features": {
+      "smart": "智能AI",
+      "smartDesc": "由最先进的神经网络驱动",
+      "quality": "高质量",
+      "qualityDesc": "保持高达1080p的视频质量",
+      "fast": "快速处理",
+      "fastDesc": "大多数视频2-3分钟内完成",
+      "secure": "安全私密",
+      "secureDesc": "您的视频经过加密并自动删除"
+    },
+    "whyChoose": {
+      "title": "为什么选择我们的Baby AI视频生成器？",
+      "accuracy": {
+        "title": "行业领先的准确性",
+        "description": "我们的AI模型在多样化的数据集上进行训练，确保跨所有种族、年龄和面部类型的准确转换。"
+      },
+      "professional": {
+        "title": "专业级结果",
+        "description": "与基础应用不同，我们的AI宝宝视频制作器产生适合专业使用的电影质量输出。"
+      },
+      "easy": {
+        "title": "简单易用",
+        "description": "无需技术专长。只需上传您的视频，根据需要调整设置，让我们的宝宝面部AI视频生成器处理复杂的处理过程。"
+      }
+    }
+  },
+  "productShowcase": {
+    "upload": {
+      "title": "简单的上传流程",
+      "description": "使用您的Baby AI视频生成器，几秒钟内开始转换。我们直观的界面让任何人都能轻松创建惊人的宝宝风格视频。",
+      "step1": "选择您的视频",
+      "step1Desc": "上传任何MP4或MOV文件，最大300MB",
+      "step2": "设置偏好",
+      "step2Desc": "调整转换强度和质量设置",
+      "step3": "开始处理",
+      "step3Desc": "点击生成，见证魔法发生"
+    },
+    "ai": {
+      "title": "先进的AI处理",
+      "description": "我们的宝宝面部AI视频生成器使用尖端深度学习技术，以令人难以置信的精度分析和转换面部特征。",
+      "detection": "面部检测与跟踪",
+      "detectionDesc": "自动检测并跟踪视频中的多个面部",
+      "regression": "年龄回归建模",
+      "regressionDesc": "应用基于科学的年龄回归，创造真实的婴儿特征",
+      "consistency": "时间一致性",
+      "consistencyDesc": "保持帧间平滑过渡，获得自然的效果"
+    },
+    "results": {
+      "title": "专业级结果",
+      "description": "下载高质量的转换视频，准备在任何平台上分享。我们的AI宝宝视频制作器每次都能确保专业级输出。",
+      "resolution": "高清分辨率",
+      "fps": "流畅播放",
+      "format": "通用格式",
+      "download": "快速下载"
+    }
+  },
+  "useCases": {
+    "title": "使用场景",
+    "subtitle": "探索Baby AI视频生成器的创意可能性",
+    "social": {
+      "title": "社交媒体内容",
+      "description": "创建病毒式视频，提高参与度"
+    },
+    "family": {
+      "title": "家庭回忆",
+      "description": "将家庭时刻转换为可爱的纪念品"
+    },
+    "marketing": {
+      "title": "营销活动",
+      "description": "为您的品牌制作独特的促销内容"
+    },
+    "entertainment": {
+      "title": "娱乐",
+      "description": "为电影和视频增添乐趣"
+    }
+  },
+  "techDetails": {
+    "title": "我们的Baby AI视频技术如何工作",
+    "subtitle": "在我们Baby AI视频生成器的魔力背后是复杂的技术",
+    "process": {
+      "title": "AI处理过程详解",
+      "step1": {
+        "title": "面部检测与分析",
+        "description": "我们的AI宝宝面部视频生成器首先使用先进的计算机视觉检测视频中的所有面部。它逐帧分析面部标记、表情和动作，创建需要转换的面部特征的详细地图。"
+      },
+      "step2": {
+        "title": "年龄回归建模",
+        "description": "使用在数百万张婴儿面部上训练的深度学习模型，系统应用年龄回归算法。这个宝宝视频AI工具了解面部比例如何随年龄变化，调整眼睛大小、鼻子形状和脸颊饱满度等特征。"
+      },
+      "step3": {
+        "title": "神经渲染",
+        "description": "我们专有的神经渲染引擎生成逼真的婴儿特征，同时保留主体的身份。AI宝宝视频制作器确保自然的皮肤纹理、真实的表情和与原始视频匹配的逼真照明。"
+      },
+      "step4": {
+        "title": "时间一致性",
+        "description": "为防止闪烁并确保平滑的结果，我们的宝宝面部AI视频生成器在帧间保持一致性。先进的算法跟踪变化并确保转换在整个视频序列中自然流动。"
+      }
+    },
+    "specs": {
+      "title": "技术规格",
+      "gpu": "GPU驱动",
+      "gpuDesc": "NVIDIA RTX 4090 GPU实现闪电般的处理",
+      "quick": "快速结果",
+      "quickDesc": "平均处理时间2-3分钟",
+      "secure": "安全管道",
+      "secureDesc": "所有视频上传的端到端加密",
+      "multi": "多模型",
+      "multiDesc": "AI模型集成以获得最佳结果"
+    },
+    "formats": {
+      "title": "支持的格式和规格",
+      "video": "视频格式：MP4、MOV（H.264/H.265编解码器）",
+      "resolution": "分辨率：高达1920x1080（全高清）",
+      "framerate": "帧率：支持24-60 fps",
+      "duration": "时长：最长60秒（更长的视频可以分段处理）",
+      "filesize": "文件大小：每次上传最大300MB",
+      "output": "输出质量：保持源质量，可选压缩"
+    },
+    "infrastructure": {
+      "title": "企业级基础设施",
+      "description": "我们的Baby AI视频生成器运行在为可靠性和规模设计的企业级基础设施上。具有冗余系统、自动故障转移和99.9%的正常运行时间保证，您可以信任我们的服务用于个人和专业用途。该平台每天处理数千个视频，为全球用户提供一致、高质量的结果。",
+      "videos": "视频已处理",
+      "uptime": "正常运行时间保证",
+      "latency": "平均延迟"
+    }
+  }
+}
