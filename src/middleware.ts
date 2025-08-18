@@ -4,7 +4,9 @@ import { NextRequest } from 'next/server';
 export default createMiddleware({
   locales: ['en', 'zh'],
   defaultLocale: 'en',
-  localePrefix: 'always'
+  localePrefix: 'always',
+  // Disable automatic locale detection based on browser settings
+  localeDetection: false
 });
 
 export const config = {
