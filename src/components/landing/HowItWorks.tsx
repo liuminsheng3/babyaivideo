@@ -28,19 +28,19 @@ export default function HowItWorks() {
     }
   ];
   return (
-    <section id="how-it-works" className="py-20 px-4 bg-gray-50">
+    <section id="how-it-works" className="py-20 px-6 bg-zinc-900">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             {t('title')}
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
             Transform your videos into baby-style content in three simple steps
           </p>
         </motion.div>
@@ -56,10 +56,10 @@ export default function HowItWorks() {
               className="relative"
             >
               <div className="text-center">
-                <div className="relative inline-block mb-6">
+                <div className="relative inline-block mb-6 mx-auto">
                   <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${step.color} p-0.5`}>
-                    <div className="w-full h-full bg-white rounded-full flex items-center justify-center">
-                      <step.icon className="w-10 h-10 text-gray-700" />
+                    <div className="w-full h-full bg-zinc-800 rounded-full flex items-center justify-center">
+                      <step.icon className="w-10 h-10 text-zinc-300" />
                     </div>
                   </div>
                   <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
@@ -67,10 +67,10 @@ export default function HowItWorks() {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-xl font-semibold text-white mb-4">
                   {step.title}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-zinc-400 text-center">
                   {step.description}
                 </p>
               </div>

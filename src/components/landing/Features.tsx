@@ -34,19 +34,19 @@ export default function Features() {
     }
   ];
   return (
-    <section className="py-20 px-4 bg-gray-50">
+    <section className="py-20 px-6 bg-zinc-900">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             {t('title')}
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
             {t('subtitle')}
           </p>
         </motion.div>
@@ -59,16 +59,16 @@ export default function Features() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="flex gap-4 p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow"
+              className="flex gap-6 p-6 bg-zinc-800 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-zinc-700"
             >
               <div className={`flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br ${feature.gradient} p-2.5`}>
                 <feature.icon className="w-full h-full text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl font-semibold text-white mb-4">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-zinc-400">
                   {feature.description}
                 </p>
               </div>

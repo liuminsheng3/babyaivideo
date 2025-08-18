@@ -2,89 +2,124 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { Github } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 export default function HeroSection() {
   const t = useTranslations('hero');
+  
   return (
-    <section className="relative pt-32 pb-20 px-4 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 opacity-50" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Background gradient effect */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-zinc-900" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-900 via-black to-black opacity-50" />
+      </div>
       
-      <div className="container mx-auto max-w-6xl relative z-10">
+      <div className="container mx-auto max-w-7xl px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center flex flex-col items-center"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
-            <Sparkles className="w-4 h-4" />
-            {t('creditsIncluded')}
-          </div>
+          {/* Logo/Brand */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
+            <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tight">
+              Baby AI
+            </h2>
+          </motion.div>
 
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          {/* Main tagline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight"
+          >
             {t('title')}
-          </h1>
+          </motion.h1>
 
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-lg md:text-xl text-zinc-400 mb-12 max-w-3xl mx-auto leading-relaxed px-4"
+          >
             {t('subtitle')}
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+          >
             <Link
-              href="/auth/signup"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-medium text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors"
+              href="https://github.com/babyai"
+              target="_blank"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-black bg-white rounded-full font-medium hover:bg-zinc-200 transition-all duration-300 hover:scale-105 min-w-[160px]"
             >
-              {t('cta')}
-              <ArrowRight className="w-5 h-5" />
+              <Github className="w-5 h-5 flex-shrink-0" />
+              <span>GitHub</span>
             </Link>
             <Link
-              href="#gallery"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-medium text-gray-700 bg-white border-2 border-gray-200 rounded-lg hover:border-primary/20 hover:bg-primary/5 transition-colors"
+              href="https://huggingface.co/babyai"
+              target="_blank"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-white bg-zinc-800 rounded-full font-medium hover:bg-zinc-700 transition-all duration-300 hover:scale-105 border border-zinc-700 min-w-[160px]"
             >
-              {t('viewExamples')}
+              <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 32 32" fill="currentColor">
+                <path d="M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm7.486 10.577l-1.194 5.955c-.136.677-.545 1.535-1.223 1.535-.678 0-1.086-.858-1.223-1.535l-1.194-5.955c-.091-.455-.364-.682-.819-.682s-.728.227-.819.682l-1.194 5.955c-.136.677-.545 1.535-1.223 1.535-.678 0-1.086-.858-1.223-1.535l-1.194-5.955c-.091-.455-.364-.682-.819-.682s-.728.227-.819.682l-1.194 5.955c-.136.677-.545 1.535-1.223 1.535-.678 0-1.086-.858-1.223-1.535L6.514 10.577c-.182-.909.273-1.839 1.136-2.321.864-.482 1.932-.428 2.741.137l2.609 1.827 2.609-1.827c.809-.565 1.877-.619 2.741-.137.863.482 1.318 1.412 1.136 2.321z"/>
+              </svg>
+              <span>Hugging Face</span>
             </Link>
-          </div>
+          </motion.div>
 
-          <div className="mt-12 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="grid grid-cols-3 gap-8 md:gap-16 max-w-2xl mx-auto"
+          >
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-1">1M+</div>
-              <div className="text-sm text-gray-600">{t('stats.videosProcessed')}</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">1M+</div>
+              <div className="text-xs md:text-sm text-zinc-500 uppercase tracking-wider">{t('stats.videosProcessed')}</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-1">HD</div>
-              <div className="text-sm text-gray-600">{t('stats.videoQuality')}</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">HD</div>
+              <div className="text-xs md:text-sm text-zinc-500 uppercase tracking-wider">{t('stats.videoQuality')}</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-1">2-3min</div>
-              <div className="text-sm text-gray-600">{t('stats.averageTime')}</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">2-3min</div>
+              <div className="text-xs md:text-sm text-zinc-500 uppercase tracking-wider">{t('stats.averageTime')}</div>
             </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-20"
-        >
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/5 to-purple-100/20 p-2">
-            <div className="aspect-video bg-gray-100 rounded-xl flex items-center justify-center">
-              <div className="text-gray-400">
-                <Sparkles className="w-16 h-16 mx-auto mb-4" />
-                <p className="text-lg">{t('demoPreview')}</p>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
 
-      <div className="absolute -bottom-1 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V120Z" fill="white"/>
-        </svg>
-      </div>
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+      >
+        <div className="w-6 h-10 border-2 border-zinc-600 rounded-full flex justify-center">
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="w-1 h-2 bg-zinc-400 rounded-full mt-2"
+          />
+        </div>
+      </motion.div>
     </section>
   );
 }

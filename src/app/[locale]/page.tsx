@@ -1,4 +1,5 @@
 import HeroSection from '@/components/landing/HeroSection';
+import VideoShowcase from '@/components/landing/VideoShowcase';
 import ProductIntro from '@/components/landing/ProductIntro';
 import ProductShowcase from '@/components/landing/ProductShowcase';
 import HowItWorks from '@/components/landing/HowItWorks';
@@ -15,8 +16,9 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen">
+      <main className="min-h-screen bg-black">
         <HeroSection />
+        <VideoShowcase />
         <ProductIntro />
         <ProductShowcase />
         <HowItWorks />

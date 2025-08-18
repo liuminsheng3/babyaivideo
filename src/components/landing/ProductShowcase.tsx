@@ -6,10 +6,10 @@ import { Play, Upload, Download, Settings } from 'lucide-react';
 
 export default function ProductShowcase() {
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-20 px-6 bg-gradient-to-b from-black to-zinc-900">
       <div className="container mx-auto max-w-6xl">
         {/* Section 1: Upload Process */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 items-center mb-20">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -18,11 +18,11 @@ export default function ProductShowcase() {
           >
             <div className="flex items-center gap-3 mb-4">
               <Upload className="w-8 h-8 text-primary" />
-              <h2 className="text-3xl font-bold text-gray-900">
+              <h2 className="text-3xl font-bold text-white">
                 Simple Upload Process
               </h2>
             </div>
-            <p className="text-lg text-gray-600 mb-6">
+            <p className="text-lg text-zinc-400 mb-6">
               Get started with your <strong>baby AI video generator</strong> transformation in seconds. 
               Our intuitive interface makes it easy for anyone to create amazing baby-style videos.
             </p>
@@ -30,22 +30,22 @@ export default function ProductShowcase() {
               <li className="flex items-start gap-3">
                 <span className="flex-shrink-0 w-6 h-6 bg-primary/10 text-primary rounded-full flex items-center justify-center text-sm font-semibold">1</span>
                 <div>
-                  <strong className="text-gray-900">Choose Your Video:</strong>
-                  <p className="text-gray-600">Upload any MP4 or MOV file up to 300MB</p>
+                  <strong className="text-white">Choose Your Video:</strong>
+                  <p className="text-zinc-400">Upload any MP4 or MOV file up to 300MB</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="flex-shrink-0 w-6 h-6 bg-primary/10 text-primary rounded-full flex items-center justify-center text-sm font-semibold">2</span>
                 <div>
-                  <strong className="text-gray-900">Set Preferences:</strong>
-                  <p className="text-gray-600">Adjust transformation strength and quality settings</p>
+                  <strong className="text-white">Set Preferences:</strong>
+                  <p className="text-zinc-400">Adjust transformation strength and quality settings</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="flex-shrink-0 w-6 h-6 bg-primary/10 text-primary rounded-full flex items-center justify-center text-sm font-semibold">3</span>
                 <div>
-                  <strong className="text-gray-900">Start Processing:</strong>
-                  <p className="text-gray-600">Click generate and watch the magic happen</p>
+                  <strong className="text-white">Start Processing:</strong>
+                  <p className="text-zinc-400">Click generate and watch the magic happen</p>
                 </div>
               </li>
             </ul>
@@ -76,7 +76,7 @@ export default function ProductShowcase() {
         </div>
 
         {/* Section 2: AI Processing */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 items-center mb-20">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -109,30 +109,30 @@ export default function ProductShowcase() {
           >
             <div className="flex items-center gap-3 mb-4">
               <Settings className="w-8 h-8 text-primary" />
-              <h2 className="text-3xl font-bold text-gray-900">
+              <h2 className="text-3xl font-bold text-white">
                 Advanced AI Processing
               </h2>
             </div>
-            <p className="text-lg text-gray-600 mb-6">
+            <p className="text-lg text-zinc-400 mb-6">
               Our <strong>baby face AI video generator</strong> uses cutting-edge deep learning 
               to analyze and transform facial features with incredible precision.
             </p>
             <div className="space-y-4">
-              <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                <h4 className="font-semibold text-gray-900 mb-2">Face Detection & Tracking</h4>
-                <p className="text-gray-600 text-sm">
+              <div className="bg-zinc-800 p-4 rounded-lg shadow-sm border border-zinc-700">
+                <h4 className="font-semibold text-white mb-2">Face Detection & Tracking</h4>
+                <p className="text-zinc-400 text-sm">
                   Automatically detects and tracks multiple faces throughout your video
                 </p>
               </div>
-              <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                <h4 className="font-semibold text-gray-900 mb-2">Age Regression Modeling</h4>
-                <p className="text-gray-600 text-sm">
+              <div className="bg-zinc-800 p-4 rounded-lg shadow-sm border border-zinc-700">
+                <h4 className="font-semibold text-white mb-2">Age Regression Modeling</h4>
+                <p className="text-zinc-400 text-sm">
                   Applies scientifically-based age regression to create authentic baby features
                 </p>
               </div>
-              <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                <h4 className="font-semibold text-gray-900 mb-2">Temporal Consistency</h4>
-                <p className="text-gray-600 text-sm">
+              <div className="bg-zinc-800 p-4 rounded-lg shadow-sm border border-zinc-700">
+                <h4 className="font-semibold text-white mb-2">Temporal Consistency</h4>
+                <p className="text-zinc-400 text-sm">
                   Maintains smooth transitions between frames for natural-looking results
                 </p>
               </div>
@@ -141,7 +141,7 @@ export default function ProductShowcase() {
         </div>
 
         {/* Section 3: Results & Download */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -150,15 +150,15 @@ export default function ProductShowcase() {
           >
             <div className="flex items-center gap-3 mb-4">
               <Download className="w-8 h-8 text-primary" />
-              <h2 className="text-3xl font-bold text-gray-900">
+              <h2 className="text-3xl font-bold text-white">
                 Professional Results
               </h2>
             </div>
-            <p className="text-lg text-gray-600 mb-6">
+            <p className="text-lg text-zinc-400 mb-6">
               Download your transformed video in high quality, ready for sharing on any platform. 
               Our <strong>AI baby video maker</strong> ensures professional-grade output every time.
             </p>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-6">
               <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg">
                 <p className="text-2xl font-bold text-green-700 mb-1">1080p</p>
                 <p className="text-sm text-gray-700">HD Resolution</p>

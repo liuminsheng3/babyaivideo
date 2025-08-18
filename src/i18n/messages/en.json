@@ -4,7 +4,7 @@
     "description": "The Baby AI Video Generator transforms your videos into adorable baby-style moments using advanced AI. Upload any video and watch it turn into cute baby content in minutes."
   },
   "hero": {
-    "title": "Baby AI Video Generator – Turn Any Video into Baby Style",
+    "title": "Every Video, Baby Take",
     "subtitle": "Turn any video into an adorable baby version with our advanced AI technology. Upload, customize, and download in minutes. Experience the magic of AI-powered baby face transformation with the leading baby ai video generator.",
     "cta": "Try it Free",
     "creditsIncluded": "10 Free Credits to Start",
@@ -192,5 +192,23 @@
     "cancel": "Cancel",
     "delete": "Delete",
     "confirm": "Confirm"
+  },
+  "videoShowcase": {
+    "title": "Cinematic Baby Vision",
+    "subtitle": "Professional cinematic narratives through deep command of shot language, offering fine-grained control over lighting, color, and composition for versatile styles",
+    "features": {
+      "moe": {
+        "title": "MoE Architecture",
+        "description": "Mixture-of-Experts architecture for superior video diffusion"
+      },
+      "dataScaling": {
+        "title": "Data Scaling",
+        "description": "+65.6% more training data compared to previous versions"
+      },
+      "aesthetics": {
+        "title": "Cinematic Aesthetics",
+        "description": "Specially curated aesthetic data with fine-grained labels"
+      }
+    }
   }
 }
