@@ -260,23 +260,36 @@
     }
   },
   "useCases": {
-    "title": "使用场景",
-    "subtitle": "探索Baby AI视频生成器的创意可能性",
+    "title": "Baby AI视频生成器使用场景",
+    "subtitle": "探索我们AI驱动的宝宝视频转换技术的无限可能性",
     "social": {
       "title": "社交媒体内容",
-      "description": "创建病毒式视频，提高参与度"
+      "description": "为TikTok、Instagram和YouTube创建病毒式内容。我们的宝宝AI视频生成器帮助您通过独特、吸引人的视频脱颖而出，吸引注意力并提高参与度。非常适合希望为视频增添有趣元素的影响者和内容创作者。"
     },
     "family": {
       "title": "家庭回忆",
-      "description": "将家庭时刻转换为可爱的纪念品"
+      "description": "将家庭视频转换为珍贵的纪念品。想象看到您的父母像婴儿时的样子，或创建可爱的婚礼视频宝宝版本。这个AI宝宝面部视频工具以独特、温馨的方式保存记忆，家人将永远珍惜。"
     },
     "marketing": {
-      "title": "营销活动",
-      "description": "为您的品牌制作独特的促销内容"
+      "title": "营销与广告",
+      "description": "企业使用我们的宝宝视频AI生成器进行创意营销活动。从婴儿产品广告到怀旧品牌故事讲述，该工具开启了新的创意可能性。通过可爱、引人注目的内容与观众建立情感联系。"
     },
     "entertainment": {
-      "title": "娱乐",
-      "description": "为电影和视频增添乐趣"
+      "title": "娱乐行业",
+      "description": "电影和电视制作人利用我们的AI宝宝视频制作器进行特效、闪回场景和创意故事讲述。节省数千美元的CGI成本，同时实现逼真的宝宝转换。非常适合音乐视频、商业广告和电影制作。"
+    },
+    "gift": {
+      "title": "个性化礼物",
+      "description": "为婴儿派对、生日和特殊场合创建独特的个性化礼物。将准父母的视频转换为宝宝版本，创造令人难忘的情感礼物。庆祝新生命和创造持久记忆的完美方式。"
+    },
+    "event": {
+      "title": "活动娱乐",
+      "description": "活动策划者和派对组织者在婚礼、聚会和企业活动中使用我们的宝宝面部视频AI进行娱乐。创建有趣的互动体验，让客人看到自己作为婴儿的样子。非常适合照片展位和活动激活。"
+    },
+    "cta": {
+      "title": "准备转换您的视频了吗？",
+      "description": "加入数千名已经使用我们的宝宝AI视频生成器创建惊人宝宝风格视频的用户。无论是个人使用还是专业项目，我们的工具每次都能提供一致、高质量的结果。",
+      "button": "立即开始创建 - 获得10个免费积分"
     }
   },
   "techDetails": {
@@ -303,30 +316,48 @@
     },
     "specs": {
       "title": "技术规格",
-      "gpu": "GPU驱动",
-      "gpuDesc": "NVIDIA RTX 4090 GPU实现闪电般的处理",
-      "quick": "快速结果",
-      "quickDesc": "平均处理时间2-3分钟",
-      "secure": "安全管道",
-      "secureDesc": "所有视频上传的端到端加密",
-      "multi": "多模型",
-      "multiDesc": "AI模型集成以获得最佳结果"
-    },
-    "formats": {
-      "title": "支持的格式和规格",
-      "video": "视频格式：MP4、MOV（H.264/H.265编解码器）",
-      "resolution": "分辨率：高达1920x1080（全高清）",
-      "framerate": "帧率：支持24-60 fps",
-      "duration": "时长：最长60秒（更长的视频可以分段处理）",
-      "filesize": "文件大小：每次上传最大300MB",
-      "output": "输出质量：保持源质量，可选压缩"
+      "gpu": {
+        "title": "GPU驱动",
+        "description": "NVIDIA RTX 4090 GPU实现闪电般的处理"
+      },
+      "speed": {
+        "title": "快速结果",
+        "description": "平均处理时间2-3分钟"
+      },
+      "security": {
+        "title": "安全管道",
+        "description": "所有视频上传的端到端加密"
+      },
+      "multimodel": {
+        "title": "多模型",
+        "description": "AI模型集成以获得最佳结果"
+      },
+      "formats": {
+        "title": "支持的格式和规格",
+        "videoFormats": "视频格式：",
+        "resolution": "分辨率：",
+        "resolutionValue": "高达1920x1080（全高清）",
+        "frameRate": "帧率：",
+        "frameRateValue": "支持24-60 fps",
+        "duration": "时长：",
+        "durationValue": "最长60秒（更长的视频可以分段处理）",
+        "fileSize": "文件大小：",
+        "fileSizeValue": "每次上传最大300MB",
+        "outputQuality": "输出质量：",
+        "outputQualityValue": "保持源质量，可选压缩"
+      }
     },
     "infrastructure": {
       "title": "企业级基础设施",
       "description": "我们的Baby AI视频生成器运行在为可靠性和规模设计的企业级基础设施上。具有冗余系统、自动故障转移和99.9%的正常运行时间保证，您可以信任我们的服务用于个人和专业用途。该平台每天处理数千个视频，为全球用户提供一致、高质量的结果。",
-      "videos": "视频已处理",
-      "uptime": "正常运行时间保证",
-      "latency": "平均延迟"
+      "stats": {
+        "videos": "1M+",
+        "videosLabel": "已处理视频",
+        "uptime": "99.9%",
+        "uptimeLabel": "正常运行时间保证",
+        "latency": "50ms",
+        "latencyLabel": "平均延迟"
+      }
     }
   },
   "videoShowcase": {

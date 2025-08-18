@@ -12,6 +12,13 @@ import FAQ from '@/components/landing/FAQ';
 import Footer from '@/components/shared/Footer';
 import Navbar from '@/components/shared/Navbar';
 
+export async function generateStaticParams() {
+  return [
+    { locale: 'en' },
+    { locale: 'zh' }
+  ];
+}
+
 export default function Home() {
   return (
     <>

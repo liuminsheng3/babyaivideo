@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { Cpu, Clock, Shield, Layers } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export default function TechDetails() {
+  const t = useTranslations('techDetails');
   return (
     <section className="py-20 px-6 bg-zinc-900">
       <div className="container mx-auto max-w-6xl">
@@ -15,10 +17,10 @@ export default function TechDetails() {
           className="mb-16 text-center"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">
-            How Our Baby AI Video Technology Works
+            {t('title')}
           </h2>
           <p className="text-lg text-zinc-400 max-w-3xl mx-auto text-center">
-            Behind the magic of our <strong>baby AI video generator</strong> lies sophisticated technology
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -29,7 +31,7 @@ export default function TechDetails() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-semibold mb-6 text-white">The AI Process Explained</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-white">{t('process.title')}</h3>
             
             <div className="space-y-8">
               <div className="flex gap-4">
@@ -37,11 +39,9 @@ export default function TechDetails() {
                   1
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-2 text-white">Face Detection & Analysis</h4>
+                  <h4 className="font-semibold mb-2 text-white">{t('process.step1.title')}</h4>
                   <p className="text-zinc-400">
-                    Our AI baby face video generator begins by detecting all faces in your video using 
-                    advanced computer vision. It analyzes facial landmarks, expressions, and movements 
-                    frame by frame, creating a detailed map of facial features that need transformation.
+                    {t('process.step1.description')}
                   </p>
                 </div>
               </div>
@@ -51,11 +51,9 @@ export default function TechDetails() {
                   2
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-2 text-white">Age Regression Modeling</h4>
+                  <h4 className="font-semibold mb-2 text-white">{t('process.step2.title')}</h4>
                   <p className="text-zinc-400">
-                    Using deep learning models trained on millions of baby faces, the system applies 
-                    age regression algorithms. This baby video AI tool understands how facial proportions 
-                    change with age, adjusting features like eye size, nose shape, and cheek fullness.
+                    {t('process.step2.description')}
                   </p>
                 </div>
               </div>
@@ -65,11 +63,9 @@ export default function TechDetails() {
                   3
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-2 text-white">Neural Rendering</h4>
+                  <h4 className="font-semibold mb-2 text-white">{t('process.step3.title')}</h4>
                   <p className="text-zinc-400">
-                    Our proprietary neural rendering engine generates photorealistic baby features while 
-                    preserving the subject's identity. The AI baby video maker ensures natural skin 
-                    textures, authentic expressions, and realistic lighting that matches the original video.
+                    {t('process.step3.description')}
                   </p>
                 </div>
               </div>
@@ -79,11 +75,9 @@ export default function TechDetails() {
                   4
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-2 text-white">Temporal Consistency</h4>
+                  <h4 className="font-semibold mb-2 text-white">{t('process.step4.title')}</h4>
                   <p className="text-zinc-400">
-                    To prevent flickering and ensure smooth results, our baby face AI video generator 
-                    maintains consistency across frames. Advanced algorithms track changes and ensure 
-                    that transformations flow naturally throughout the entire video sequence.
+                    {t('process.step4.description')}
                   </p>
                 </div>
               </div>
@@ -96,48 +90,48 @@ export default function TechDetails() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-semibold mb-6 text-white">Technical Specifications</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-white">{t('specs.title')}</h3>
             
             <div className="grid grid-cols-2 gap-6 mb-6">
               <div className="bg-zinc-800 border border-zinc-700 p-6 rounded-xl text-center">
                 <Cpu className="w-8 h-8 text-primary mb-4 mx-auto" />
-                <h4 className="font-semibold mb-1 text-white">GPU-Powered</h4>
+                <h4 className="font-semibold mb-1 text-white">{t('specs.gpu.title')}</h4>
                 <p className="text-sm text-zinc-400">
-                  NVIDIA RTX 4090 GPUs for lightning-fast processing
+                  {t('specs.gpu.description')}
                 </p>
               </div>
               <div className="bg-zinc-800 border border-zinc-700 p-6 rounded-xl text-center">
                 <Clock className="w-8 h-8 text-primary mb-4 mx-auto" />
-                <h4 className="font-semibold mb-1 text-white">Quick Results</h4>
+                <h4 className="font-semibold mb-1 text-white">{t('specs.speed.title')}</h4>
                 <p className="text-sm text-zinc-400">
-                  2-3 minutes average processing time
+                  {t('specs.speed.description')}
                 </p>
               </div>
               <div className="bg-zinc-800 border border-zinc-700 p-6 rounded-xl text-center">
                 <Shield className="w-8 h-8 text-primary mb-4 mx-auto" />
-                <h4 className="font-semibold mb-1 text-white">Secure Pipeline</h4>
+                <h4 className="font-semibold mb-1 text-white">{t('specs.security.title')}</h4>
                 <p className="text-sm text-zinc-400">
-                  End-to-end encryption for all video uploads
+                  {t('specs.security.description')}
                 </p>
               </div>
               <div className="bg-zinc-800 border border-zinc-700 p-6 rounded-xl text-center">
                 <Layers className="w-8 h-8 text-primary mb-4 mx-auto" />
-                <h4 className="font-semibold mb-1 text-white">Multi-Model</h4>
+                <h4 className="font-semibold mb-1 text-white">{t('specs.multimodel.title')}</h4>
                 <p className="text-sm text-zinc-400">
-                  Ensemble of AI models for best results
+                  {t('specs.multimodel.description')}
                 </p>
               </div>
             </div>
 
             <div className="bg-primary/5 border border-zinc-700 p-6 rounded-xl">
-              <h4 className="font-semibold mb-3 text-white">Supported Formats & Specifications</h4>
+              <h4 className="font-semibold mb-3 text-white">{t('specs.formats.title')}</h4>
               <ul className="space-y-2 text-sm text-zinc-400">
-                <li>• <strong>Video Formats:</strong> MP4, MOV (H.264/H.265 codec)</li>
-                <li>• <strong>Resolution:</strong> Up to 1920x1080 (Full HD)</li>
-                <li>• <strong>Frame Rate:</strong> 24-60 fps supported</li>
-                <li>• <strong>Duration:</strong> Up to 60 seconds (longer videos can be processed in segments)</li>
-                <li>• <strong>File Size:</strong> Maximum 300MB per upload</li>
-                <li>• <strong>Output Quality:</strong> Maintains source quality with optional compression</li>
+                <li>• <strong>{t('specs.formats.videoFormats')}</strong> MP4, MOV (H.264/H.265)</li>
+                <li>• <strong>{t('specs.formats.resolution')}</strong> {t('specs.formats.resolutionValue')}</li>
+                <li>• <strong>{t('specs.formats.frameRate')}</strong> {t('specs.formats.frameRateValue')}</li>
+                <li>• <strong>{t('specs.formats.duration')}</strong> {t('specs.formats.durationValue')}</li>
+                <li>• <strong>{t('specs.formats.fileSize')}</strong> {t('specs.formats.fileSizeValue')}</li>
+                <li>• <strong>{t('specs.formats.outputQuality')}</strong> {t('specs.formats.outputQualityValue')}</li>
               </ul>
             </div>
           </motion.div>
@@ -151,27 +145,23 @@ export default function TechDetails() {
           className="bg-black border border-zinc-800 text-white rounded-2xl p-8"
         >
           <h3 className="text-2xl font-semibold mb-6 text-center">
-            Enterprise-Grade Infrastructure
+            {t('infrastructure.title')}
           </h3>
           <p className="text-zinc-400 mb-6 text-center max-w-4xl mx-auto">
-            Our <strong className="text-white">baby AI video generator</strong> runs on enterprise-grade 
-            infrastructure designed for reliability and scale. With redundant systems, automatic failover, 
-            and 99.9% uptime guarantee, you can trust our service for both personal and professional use. 
-            The platform processes thousands of videos daily, serving users worldwide with consistent, 
-            high-quality results.
+            {t('infrastructure.description')}
           </p>
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-primary mb-1">1M+</div>
-              <div className="text-zinc-400">Videos Processed</div>
+              <div className="text-3xl font-bold text-primary mb-1">{t('infrastructure.stats.videos')}</div>
+              <div className="text-zinc-400">{t('infrastructure.stats.videosLabel')}</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-1">99.9%</div>
-              <div className="text-zinc-400">Uptime Guarantee</div>
+              <div className="text-3xl font-bold text-primary mb-1">{t('infrastructure.stats.uptime')}</div>
+              <div className="text-zinc-400">{t('infrastructure.stats.uptimeLabel')}</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-1">50ms</div>
-              <div className="text-zinc-400">Average Latency</div>
+              <div className="text-3xl font-bold text-primary mb-1">{t('infrastructure.stats.latency')}</div>
+              <div className="text-zinc-400">{t('infrastructure.stats.latencyLabel')}</div>
             </div>
           </div>
         </motion.div>

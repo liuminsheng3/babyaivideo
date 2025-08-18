@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   
   return [
     {
-      url: baseUrl,
+      url: `${baseUrl}/en`,
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 1,
@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/pricing`,
+      url: `${baseUrl}/en/pricing`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/blog`,
+      url: `${baseUrl}/en/blog`,
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.8,
@@ -41,7 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/help`,
+      url: `${baseUrl}/en/help`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.7,
@@ -53,19 +53,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/privacy`,
+      url: `${baseUrl}/en/privacy`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/terms`,
+      url: `${baseUrl}/zh/privacy`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/notes`,
+      url: `${baseUrl}/en/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/zh/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/en/notes`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/zh/notes`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,

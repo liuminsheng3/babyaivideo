@@ -20,7 +20,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [];
+  const navLinks: { href: string; label: string }[] = [];
 
   return (
     <nav className={`fixed top-0 z-50 w-full transition-all duration-300 ${
