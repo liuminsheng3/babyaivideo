@@ -87,6 +87,43 @@ export async function signInWithGoogle() {
   }
 }
 
+export async function signInWithGitHub() {
+  try {
+    const supabase = await createClient();
+    const headersList = await headers();
+    
+    // Get the origin from various possible sources
+    let origin = headersList.get('origin');
+    
+    if (!origin) {
+      const host = headersList.get('x-forwarded-host') || headersList.get('host');
+      const proto = headersList.get('x-forwarded-proto') || 'https';
+      origin = host ? `${proto}://${host}` : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+    }
+
+    console.log('GitHub OAuth redirect origin:', origin);
+
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'github',
+      options: {
+        redirectTo: `${origin}/auth/callback`,
+      },
+    });
+
+    if (error) {
+      console.error('GitHub OAuth error:', error);
+      return { error: error.message };
+    }
+
+    if (data.url) {
+      redirect(data.url);
+    }
+  } catch (err) {
+    console.error('Unexpected error in signInWithGitHub:', err);
+    return { error: 'Failed to initiate GitHub sign-in' };
+  }
+}
+
 export async function resetPassword(formData: FormData) {
   const email = formData.get('email') as string;
   const supabase = await createClient();
