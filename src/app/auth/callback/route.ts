@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 export async function GET(request: NextRequest) {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get('code');
-  const next = requestUrl.searchParams.get('next') ?? '/dashboard';
+  const next = requestUrl.searchParams.get('next') ?? '/en/dashboard';
 
   if (code) {
     const supabase = await createClient();
@@ -17,10 +17,10 @@ export async function GET(request: NextRequest) {
     } else {
       console.error('Auth callback error:', error);
       // Authentication failed, redirect to sign in with error
-      return NextResponse.redirect(new URL('/auth/signin?error=auth_failed', requestUrl.origin));
+      return NextResponse.redirect(new URL('/en/auth/signin?error=auth_failed', requestUrl.origin));
     }
   }
 
   // No code present, redirect to sign in
-  return NextResponse.redirect(new URL('/auth/signin', requestUrl.origin));
+  return NextResponse.redirect(new URL('/en/auth/signin', requestUrl.origin));
 }
