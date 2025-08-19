@@ -5,12 +5,22 @@ import { NextRequest } from 'next/server';
 export async function GET(request: NextRequest) {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get('code');
+  const next = requestUrl.searchParams.get('next') ?? '/dashboard';
 
   if (code) {
     const supabase = await createClient();
-    await supabase.auth.exchangeCodeForSession(code);
+    const { error } = await supabase.auth.exchangeCodeForSession(code);
+    
+    if (!error) {
+      // Successfully authenticated, redirect to dashboard or next page
+      return NextResponse.redirect(new URL(next, requestUrl.origin));
+    } else {
+      console.error('Auth callback error:', error);
+      // Authentication failed, redirect to sign in with error
+      return NextResponse.redirect(new URL('/auth/signin?error=auth_failed', requestUrl.origin));
+    }
   }
 
-  // URL to redirect to after sign in process completes
-  return NextResponse.redirect(new URL('/dashboard', request.url));
+  // No code present, redirect to sign in
+  return NextResponse.redirect(new URL('/auth/signin', requestUrl.origin));
 }
