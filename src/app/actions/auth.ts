@@ -51,23 +51,39 @@ export async function signOut() {
 }
 
 export async function signInWithGoogle() {
-  const supabase = await createClient();
-  const headersList = await headers();
-  const origin = headersList.get('origin');
+  try {
+    const supabase = await createClient();
+    const headersList = await headers();
+    
+    // Get the origin from various possible sources
+    let origin = headersList.get('origin');
+    
+    if (!origin) {
+      const host = headersList.get('x-forwarded-host') || headersList.get('host');
+      const proto = headersList.get('x-forwarded-proto') || 'https';
+      origin = host ? `${proto}://${host}` : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+    }
 
-  const { data, error } = await supabase.auth.signInWithOAuth({
-    provider: 'google',
-    options: {
-      redirectTo: `${origin}/auth/callback`,
-    },
-  });
+    console.log('OAuth redirect origin:', origin);
 
-  if (error) {
-    return { error: error.message };
-  }
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: `${origin}/auth/callback`,
+      },
+    });
 
-  if (data.url) {
-    redirect(data.url);
+    if (error) {
+      console.error('Google OAuth error:', error);
+      return { error: error.message };
+    }
+
+    if (data.url) {
+      redirect(data.url);
+    }
+  } catch (err) {
+    console.error('Unexpected error in signInWithGoogle:', err);
+    return { error: 'Failed to initiate Google sign-in' };
   }
 }
 
