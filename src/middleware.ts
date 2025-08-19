@@ -1,7 +1,7 @@
 import createMiddleware from 'next-intl/middleware';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export default createMiddleware({
+const intlMiddleware = createMiddleware({
   locales: ['en', 'zh'],
   defaultLocale: 'en',
   localePrefix: 'always',
@@ -9,10 +9,33 @@ export default createMiddleware({
   localeDetection: false
 });
 
+export default function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+  
+  // Skip middleware for auth callback route
+  if (pathname.startsWith('/auth/callback')) {
+    console.log('[Middleware] Skipping for auth callback:', pathname);
+    return NextResponse.next();
+  }
+  
+  // Skip middleware for auth routes that shouldn't have locale prefix
+  if (pathname.startsWith('/auth/') || pathname.startsWith('/api/')) {
+    console.log('[Middleware] Skipping for auth/api route:', pathname);
+    return NextResponse.next();
+  }
+  
+  // Apply intl middleware for other routes
+  return intlMiddleware(request);
+}
+
 export const config = {
   matcher: [
-    '/',
-    '/(zh|en)/:path*',
-    '/((?!api|_next|_vercel|.*\\..*).*)'
+    // Match all pathnames except for
+    // - api routes (/api/*)
+    // - _next/static (static files)
+    // - _next/image (image optimization files)
+    // - favicon.ico (favicon file)
+    // - public files (public/*)
+    '/((?!api|_next/static|_next/image|favicon.ico|public|auth/callback).*)',
   ]
 };
