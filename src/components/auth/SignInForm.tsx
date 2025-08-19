@@ -2,33 +2,20 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Mail, Lock, User, ArrowLeft, Eye, EyeOff } from 'lucide-react';
-import { signUp, signInWithGoogle } from '@/app/actions/auth';
+import { Mail, Lock, ArrowLeft, Eye, EyeOff } from 'lucide-react';
+import { signIn, signInWithGoogle } from '@/app/actions/auth';
 import { useRouter } from 'next/navigation';
 
-export default function SignUpForm() {
+export default function SignInForm() {
   const router = useRouter();
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    if (password !== confirmPassword) {
-      setMessage({ type: 'error', text: 'Passwords do not match' });
-      return;
-    }
-
-    if (password.length < 6) {
-      setMessage({ type: 'error', text: 'Password must be at least 6 characters' });
-      return;
-    }
     
     setLoading(true);
     setMessage(null);
@@ -36,21 +23,15 @@ export default function SignUpForm() {
     const formData = new FormData();
     formData.append('email', email);
     formData.append('password', password);
-    formData.append('name', name);
 
     try {
-      const result = await signUp(formData);
+      const result = await signIn(formData);
       
       if (result?.error) {
         setMessage({ type: 'error', text: result.error });
         setLoading(false);
-      } else {
-        setMessage({ 
-          type: 'success', 
-          text: 'Sign up successful! Please check your email to verify your account.' 
-        });
-        setLoading(false);
       }
+      // If successful, signIn will redirect to dashboard
     } catch (error) {
       setMessage({ type: 'error', text: 'An unexpected error occurred' });
       setLoading(false);
@@ -76,8 +57,8 @@ export default function SignUpForm() {
             Back to home
           </Link>
           
-          <h1 className="text-3xl font-bold mb-2">Create Account</h1>
-          <p className="text-gray-600 mb-6">Start creating amazing baby videos today</p>
+          <h1 className="text-3xl font-bold mb-2">Welcome Back</h1>
+          <p className="text-gray-600 mb-6">Sign in to continue creating amazing baby videos</p>
           
           {message && (
             <div className={`p-3 rounded-lg mb-6 ${
@@ -90,25 +71,6 @@ export default function SignUpForm() {
           )}
           
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                Full Name
-              </label>
-              <div className="relative">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <input
-                  id="name"
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                  placeholder="John Doe"
-                  disabled={loading}
-                />
-              </div>
-            </div>
-
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address
@@ -154,46 +116,24 @@ export default function SignUpForm() {
               </div>
             </div>
 
-            <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
-                Confirm Password
-              </label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
                 <input
-                  id="confirmPassword"
-                  type={showConfirmPassword ? 'text' : 'password'}
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  required
-                  className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                  placeholder="••••••••"
+                  id="remember"
+                  type="checkbox"
+                  className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
                   disabled={loading}
                 />
-                <button
-                  type="button"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                >
-                  {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                </button>
+                <label htmlFor="remember" className="ml-2 block text-sm text-gray-700">
+                  Remember me
+                </label>
               </div>
-            </div>
-            
-            <div className="flex items-center">
-              <input
-                id="terms"
-                type="checkbox"
-                required
-                className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
-                disabled={loading}
-              />
-              <label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
-                I agree to the{' '}
-                <Link href="/terms" className="text-primary hover:underline">
-                  Terms and Conditions
-                </Link>
-              </label>
+              <Link 
+                href="/auth/reset-password" 
+                className="text-sm text-primary hover:underline"
+              >
+                Forgot password?
+              </Link>
             </div>
             
             <button
@@ -201,7 +141,7 @@ export default function SignUpForm() {
               disabled={loading}
               className="w-full py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? 'Creating account...' : 'Sign Up'}
+              {loading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
           
@@ -231,9 +171,9 @@ export default function SignUpForm() {
           </div>
           
           <p className="mt-6 text-center text-sm text-gray-600">
-            Already have an account?{' '}
-            <Link href="/auth/signin" className="text-primary hover:underline">
-              Sign in
+            Don't have an account?{' '}
+            <Link href="/auth/signup" className="text-primary hover:underline">
+              Sign up for free
             </Link>
           </p>
         </div>

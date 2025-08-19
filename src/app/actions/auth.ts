@@ -71,7 +71,8 @@ export async function signInWithGoogle() {
   }
 }
 
-export async function resetPassword(email: string) {
+export async function resetPassword(formData: FormData) {
+  const email = formData.get('email') as string;
   const supabase = await createClient();
   
   const { error } = await supabase.auth.resetPasswordForEmail(email, {

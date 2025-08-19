@@ -30,9 +30,9 @@ export default function HeroSection() {
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tight">
+            <div className="text-5xl md:text-7xl font-bold text-white tracking-tight">
               Baby AI
-            </h2>
+            </div>
           </motion.div>
 
           {/* Main tagline */}
