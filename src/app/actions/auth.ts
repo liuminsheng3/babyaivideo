@@ -11,7 +11,7 @@ export async function signUp(formData: FormData) {
 
   // Use production URL in production environment
   const siteUrl = process.env.NODE_ENV === 'production' || process.env.VERCEL === '1' 
-    ? 'https://www.babyaivideo.com' 
+    ? 'https://babyaivideo.com' 
     : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
     
   const { error } = await supabase.auth.signUp({
@@ -88,7 +88,7 @@ export async function signInWithGoogle() {
       
       // In production, always use the production URL
       if (process.env.NODE_ENV === 'production' || process.env.VERCEL === '1') {
-        origin = 'https://www.babyaivideo.com';
+        origin = 'https://babyaivideo.com';
       } else {
         origin = host ? `${proto}://${host}` : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
       }
@@ -139,7 +139,7 @@ export async function signInWithGitHub() {
       
       // In production, always use the production URL
       if (process.env.NODE_ENV === 'production' || process.env.VERCEL === '1') {
-        origin = 'https://www.babyaivideo.com';
+        origin = 'https://babyaivideo.com';
       } else {
         origin = host ? `${proto}://${host}` : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
       }
@@ -182,7 +182,7 @@ export async function resetPassword(formData: FormData) {
   
   // Use production URL in production environment
   const siteUrl = process.env.NODE_ENV === 'production' || process.env.VERCEL === '1' 
-    ? 'https://www.babyaivideo.com' 
+    ? 'https://babyaivideo.com' 
     : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
@@ -234,7 +234,7 @@ export async function resendVerificationEmail(email: string) {
   
   // Use production URL in production environment
   const siteUrl = process.env.NODE_ENV === 'production' || process.env.VERCEL === '1' 
-    ? 'https://www.babyaivideo.com' 
+    ? 'https://babyaivideo.com' 
     : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   
   const { error } = await supabase.auth.resend({

@@ -13,7 +13,9 @@ export async function GET(request: NextRequest) {
     code: code ? 'present' : 'missing',
     error,
     error_description,
-    url: request.url
+    url: request.url,
+    host: requestUrl.host,
+    origin: requestUrl.origin
   });
 
   // Handle OAuth errors
