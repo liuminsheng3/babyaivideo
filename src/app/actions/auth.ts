@@ -9,11 +9,16 @@ export async function signUp(formData: FormData) {
   const password = formData.get('password') as string;
   const supabase = await createClient();
 
+  // Use production URL in production environment
+  const siteUrl = process.env.NODE_ENV === 'production' || process.env.VERCEL === '1' 
+    ? 'https://www.babyaivideo.com' 
+    : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+    
   const { error } = await supabase.auth.signUp({
     email,
     password,
     options: {
-      emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
+      emailRedirectTo: `${siteUrl}/auth/callback`,
     },
   });
 
@@ -80,10 +85,21 @@ export async function signInWithGoogle() {
     if (!origin) {
       const host = headersList.get('x-forwarded-host') || headersList.get('host');
       const proto = headersList.get('x-forwarded-proto') || 'https';
-      origin = host ? `${proto}://${host}` : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+      
+      // In production, always use the production URL
+      if (process.env.NODE_ENV === 'production' || process.env.VERCEL === '1') {
+        origin = 'https://www.babyaivideo.com';
+      } else {
+        origin = host ? `${proto}://${host}` : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+      }
     }
 
-    console.log('OAuth redirect origin:', origin);
+    console.log('OAuth configuration:', {
+      origin,
+      env: process.env.NODE_ENV,
+      vercel: process.env.VERCEL,
+      siteUrl: process.env.NEXT_PUBLIC_SITE_URL
+    });
 
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
@@ -120,10 +136,21 @@ export async function signInWithGitHub() {
     if (!origin) {
       const host = headersList.get('x-forwarded-host') || headersList.get('host');
       const proto = headersList.get('x-forwarded-proto') || 'https';
-      origin = host ? `${proto}://${host}` : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+      
+      // In production, always use the production URL
+      if (process.env.NODE_ENV === 'production' || process.env.VERCEL === '1') {
+        origin = 'https://www.babyaivideo.com';
+      } else {
+        origin = host ? `${proto}://${host}` : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+      }
     }
 
-    console.log('GitHub OAuth redirect origin:', origin);
+    console.log('GitHub OAuth configuration:', {
+      origin,
+      env: process.env.NODE_ENV,
+      vercel: process.env.VERCEL,
+      siteUrl: process.env.NEXT_PUBLIC_SITE_URL
+    });
 
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'github',
@@ -153,8 +180,13 @@ export async function resetPassword(formData: FormData) {
   const email = formData.get('email') as string;
   const supabase = await createClient();
   
+  // Use production URL in production environment
+  const siteUrl = process.env.NODE_ENV === 'production' || process.env.VERCEL === '1' 
+    ? 'https://www.babyaivideo.com' 
+    : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/reset-password`,
+    redirectTo: `${siteUrl}/auth/reset-password`,
   });
 
   if (error) {
@@ -200,11 +232,16 @@ export async function getSession() {
 export async function resendVerificationEmail(email: string) {
   const supabase = await createClient();
   
+  // Use production URL in production environment
+  const siteUrl = process.env.NODE_ENV === 'production' || process.env.VERCEL === '1' 
+    ? 'https://www.babyaivideo.com' 
+    : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  
   const { error } = await supabase.auth.resend({
     type: 'signup',
     email: email,
     options: {
-      emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
+      emailRedirectTo: `${siteUrl}/auth/callback`,
     }
   });
 
