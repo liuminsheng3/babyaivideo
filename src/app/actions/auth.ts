@@ -52,12 +52,12 @@ export async function signIn(formData: FormData) {
       errorMessage = 'No account found with this email. Please sign up first.';
     }
     
-    // Check if user exists but email is unverified
-    if (data?.user && !data.user.email_confirmed_at) {
-      errorMessage = 'Please verify your email address. Check your inbox for the verification email.';
-    }
-    
     return { error: errorMessage };
+  }
+  
+  // Check if user email is verified (only check when login is successful)
+  if (data?.user && !data.user.email_confirmed_at) {
+    return { error: 'Please verify your email address. Check your inbox for the verification email.' };
   }
 
   redirect('/en/dashboard');
