@@ -98,8 +98,11 @@ export async function signInWithGoogle() {
     }
 
     if (data.url) {
-      redirect(data.url);
+      // Return the URL for client-side redirect
+      return { url: data.url };
     }
+    
+    return { error: 'Failed to generate OAuth URL' };
   } catch (err) {
     console.error('Unexpected error in signInWithGoogle:', err);
     return { error: 'Failed to initiate Google sign-in' };
@@ -135,8 +138,11 @@ export async function signInWithGitHub() {
     }
 
     if (data.url) {
-      redirect(data.url);
+      // Return the URL for client-side redirect
+      return { url: data.url };
     }
+    
+    return { error: 'Failed to generate OAuth URL' };
   } catch (err) {
     console.error('Unexpected error in signInWithGitHub:', err);
     return { error: 'Failed to initiate GitHub sign-in' };

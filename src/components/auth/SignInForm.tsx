@@ -49,7 +49,15 @@ export default function SignInForm() {
   const handleGoogleSignIn = async () => {
     setLoading(true);
     try {
-      await signInWithGoogle();
+      const result = await signInWithGoogle();
+      
+      if (result?.error) {
+        setMessage({ type: 'error', text: result.error });
+        setLoading(false);
+      } else if (result?.url) {
+        // Redirect to OAuth provider
+        window.location.href = result.url;
+      }
     } catch (error) {
       setMessage({ type: 'error', text: 'Failed to sign in with Google' });
       setLoading(false);
@@ -59,7 +67,15 @@ export default function SignInForm() {
   const handleGitHubSignIn = async () => {
     setLoading(true);
     try {
-      await signInWithGitHub();
+      const result = await signInWithGitHub();
+      
+      if (result?.error) {
+        setMessage({ type: 'error', text: result.error });
+        setLoading(false);
+      } else if (result?.url) {
+        // Redirect to OAuth provider
+        window.location.href = result.url;
+      }
     } catch (error) {
       setMessage({ type: 'error', text: 'Failed to sign in with GitHub' });
       setLoading(false);
