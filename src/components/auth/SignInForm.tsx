@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Mail, Lock, ArrowLeft, Eye, EyeOff, Github } from 'lucide-react';
-import { signIn, signInWithGoogle, signInWithGitHub } from '@/app/actions/auth';
+import { signIn, signInWithGoogle, signInWithGitHub, resendVerificationEmail } from '@/app/actions/auth';
 import { useRouter } from 'next/navigation';
 
 export default function SignInForm() {
@@ -13,6 +13,7 @@ export default function SignInForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+  const [showResendEmail, setShowResendEmail] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,11 +30,18 @@ export default function SignInForm() {
       
       if (result?.error) {
         setMessage({ type: 'error', text: result.error });
+        // Show resend email button if email verification is needed
+        if (result.error.includes('verify your email')) {
+          setShowResendEmail(true);
+        } else {
+          setShowResendEmail(false);
+        }
         setLoading(false);
       }
       // If successful, signIn will redirect to dashboard
     } catch (error) {
       setMessage({ type: 'error', text: 'An unexpected error occurred' });
+      setShowResendEmail(false);
       setLoading(false);
     }
   };
@@ -58,6 +66,26 @@ export default function SignInForm() {
     }
   };
 
+  const handleResendVerification = async () => {
+    setLoading(true);
+    setMessage(null);
+    
+    try {
+      const result = await resendVerificationEmail(email);
+      
+      if (result?.error) {
+        setMessage({ type: 'error', text: result.error });
+      } else {
+        setMessage({ type: 'success', text: 'Verification email sent! Please check your inbox.' });
+        setShowResendEmail(false);
+      }
+    } catch (error) {
+      setMessage({ type: 'error', text: 'Failed to send verification email' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 p-4">
       <div className="w-full max-w-md">
@@ -77,6 +105,16 @@ export default function SignInForm() {
                 : 'bg-red-50 text-red-700'
             }`}>
               {message.text}
+              {showResendEmail && (
+                <button
+                  type="button"
+                  onClick={handleResendVerification}
+                  disabled={loading || !email}
+                  className="mt-2 block w-full text-sm underline hover:no-underline disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Resend verification email
+                </button>
+              )}
             </div>
           )}
           

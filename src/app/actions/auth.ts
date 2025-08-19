@@ -32,13 +32,32 @@ export async function signIn(formData: FormData) {
   const password = formData.get('password') as string;
   const supabase = await createClient();
 
-  const { error } = await supabase.auth.signInWithPassword({
+  const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
   });
 
   if (error) {
-    return { error: error.message };
+    // Provide more specific error messages based on error code
+    let errorMessage = error.message;
+    
+    // Common Supabase auth error codes
+    if (error.message === 'Invalid login credentials') {
+      errorMessage = 'Invalid email or password. Please check your credentials and try again.';
+    } else if (error.message === 'Email not confirmed') {
+      errorMessage = 'Please verify your email address before signing in. Check your inbox for the verification email.';
+    } else if (error.message.includes('Email link is invalid or has expired')) {
+      errorMessage = 'Your verification link has expired. Please request a new verification email.';
+    } else if (error.message.includes('User not found')) {
+      errorMessage = 'No account found with this email. Please sign up first.';
+    }
+    
+    // Check if user exists but email is unverified
+    if (data?.user && !data.user.email_confirmed_at) {
+      errorMessage = 'Please verify your email address. Check your inbox for the verification email.';
+    }
+    
+    return { error: errorMessage };
   }
 
   redirect('/en/dashboard');
@@ -170,4 +189,25 @@ export async function getSession() {
   const { data: { session } } = await supabase.auth.getSession();
   
   return session;
+}
+
+export async function resendVerificationEmail(email: string) {
+  const supabase = await createClient();
+  
+  const { error } = await supabase.auth.resend({
+    type: 'signup',
+    email: email,
+    options: {
+      emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
+    }
+  });
+
+  if (error) {
+    return { error: error.message };
+  }
+
+  return { 
+    success: true, 
+    message: 'Verification email sent! Please check your inbox.' 
+  };
 }
