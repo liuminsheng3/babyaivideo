@@ -15,6 +15,8 @@ import {
 //   keywords: 'system status, uptime, service health, incident reports, maintenance',
 // };
 
+type StatusType = 'operational' | 'degraded' | 'partial' | 'major';
+
 export default function StatusPage() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [autoRefresh, setAutoRefresh] = useState(true);
@@ -26,7 +28,7 @@ export default function StatusPage() {
     return () => clearInterval(timer);
   }, []);
 
-  const overallStatus: 'operational' | 'degraded' | 'partial' | 'major' = 'operational';
+  const overallStatus: StatusType = 'operational';
 
   const services = [
     {
@@ -125,7 +127,7 @@ export default function StatusPage() {
     { date: 'Jan 9', uptime: 100 }
   ];
 
-  const getStatusIcon = (status: string) => {
+  const getStatusIcon = (status: string | StatusType) => {
     switch (status) {
       case 'operational':
         return <CheckCircle className="w-5 h-5 text-green-500" />;
@@ -140,7 +142,7 @@ export default function StatusPage() {
     }
   };
 
-  const getStatusColor = (status: string) => {
+  const getStatusColor = (status: string | StatusType) => {
     switch (status) {
       case 'operational':
         return 'bg-green-100 text-green-800 border-green-200';
