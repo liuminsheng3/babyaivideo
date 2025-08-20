@@ -6,7 +6,7 @@ import {
   Key, Database, Mail, Smartphone, Monitor, Moon,
   Sun, Save, Camera, Upload, Check, AlertCircle,
   Lock, LogOut, Trash2, Download, ChevronRight,
-  ToggleLeft, Volume2, Zap, Eye, EyeOff
+  ToggleLeft, Volume2, Zap, Eye, EyeOff, Copy
 } from 'lucide-react';
 
 export default function SettingsPage() {
