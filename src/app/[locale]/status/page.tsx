@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactElement } from 'react';
 import { Metadata } from 'next';
 import { 
   CheckCircle, AlertCircle, XCircle, Activity, 
@@ -128,7 +128,7 @@ export default function StatusPage() {
   ];
 
   const getStatusIcon = (status: string) => {
-    const icons: Record<string, JSX.Element> = {
+    const icons: Record<string, ReactElement> = {
       'operational': <CheckCircle className="w-5 h-5 text-green-500" />,
       'degraded': <AlertCircle className="w-5 h-5 text-yellow-500" />,
       'partial': <AlertCircle className="w-5 h-5 text-orange-500" />,
