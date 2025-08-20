@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, use } from 'react';
 import Link from 'next/link';
 import { 
   ArrowLeft, Download, Share2, Heart, Eye, Clock, Calendar,
@@ -10,8 +10,18 @@ import {
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
-export default function VideoDetailPage({ params }: { params: { id: string } }) {
+type PageParams = {
+  params: Promise<{
+    id: string;
+    locale: string;
+  }>;
+};
+
+export default function VideoDetailPage({ params }: PageParams) {
   const router = useRouter();
+  const resolvedParams = use(params);
+  const videoId = resolvedParams.id;
+  
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
@@ -21,7 +31,7 @@ export default function VideoDetailPage({ params }: { params: { id: string } }) 
 
   // Mock data - in production this would come from an API
   const video = {
-    id: params.id,
+    id: videoId,
     title: 'Baby\'s First Steps in Garden',
     description: 'A heartwarming video of a baby taking their first steps in a sunny garden, surrounded by colorful flowers and butterflies.',
     url: '/api/video/sample.mp4',
