@@ -127,49 +127,37 @@ export default function StatusPage() {
     { date: 'Jan 9', uptime: 100 }
   ];
 
-  const getStatusIcon = (status: string | StatusType) => {
-    switch (status) {
-      case 'operational':
-        return <CheckCircle className="w-5 h-5 text-green-500" />;
-      case 'degraded':
-        return <AlertCircle className="w-5 h-5 text-yellow-500" />;
-      case 'partial':
-        return <AlertCircle className="w-5 h-5 text-orange-500" />;
-      case 'major':
-        return <XCircle className="w-5 h-5 text-red-500" />;
-      default:
-        return <Info className="w-5 h-5 text-gray-500" />;
-    }
+  const getStatusIcon = (status: string) => {
+    const icons: Record<string, JSX.Element> = {
+      'operational': <CheckCircle className="w-5 h-5 text-green-500" />,
+      'degraded': <AlertCircle className="w-5 h-5 text-yellow-500" />,
+      'partial': <AlertCircle className="w-5 h-5 text-orange-500" />,
+      'major': <XCircle className="w-5 h-5 text-red-500" />
+    };
+    
+    return icons[status] || <Info className="w-5 h-5 text-gray-500" />;
   };
 
-  const getStatusColor = (status: string | StatusType) => {
-    switch (status) {
-      case 'operational':
-        return 'bg-green-100 text-green-800 border-green-200';
-      case 'degraded':
-        return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-      case 'partial':
-        return 'bg-orange-100 text-orange-800 border-orange-200';
-      case 'major':
-        return 'bg-red-100 text-red-800 border-red-200';
-      default:
-        return 'bg-gray-100 text-gray-800 border-gray-200';
-    }
+  const getStatusColor = (status: string) => {
+    const colors: Record<string, string> = {
+      'operational': 'bg-green-100 text-green-800 border-green-200',
+      'degraded': 'bg-yellow-100 text-yellow-800 border-yellow-200',
+      'partial': 'bg-orange-100 text-orange-800 border-orange-200',
+      'major': 'bg-red-100 text-red-800 border-red-200'
+    };
+    
+    return colors[status] || 'bg-gray-100 text-gray-800 border-gray-200';
   };
 
   const getOverallStatusMessage = () => {
-    switch (overallStatus) {
-      case 'operational':
-        return 'All Systems Operational';
-      case 'degraded':
-        return 'Degraded Performance';
-      case 'partial':
-        return 'Partial Outage';
-      case 'major':
-        return 'Major Outage';
-      default:
-        return 'Unknown Status';
-    }
+    const statusMessages: Record<StatusType, string> = {
+      'operational': 'All Systems Operational',
+      'degraded': 'Degraded Performance',
+      'partial': 'Partial Outage',
+      'major': 'Major Outage'
+    };
+    
+    return statusMessages[overallStatus] || 'Unknown Status';
   };
 
   return (
