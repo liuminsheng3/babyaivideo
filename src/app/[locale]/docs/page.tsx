@@ -88,7 +88,14 @@ export default function DocsPage() {
 
   const currentCategory = categories.find(cat => cat.id === selectedCategory);
 
-  const filteredArticles = searchQuery
+  type ArticleWithCategory = {
+    title: string;
+    slug: string;
+    readTime: string;
+    category?: string;
+  };
+
+  const filteredArticles: ArticleWithCategory[] = searchQuery
     ? categories.flatMap(cat => 
         cat.articles
           .filter(article => 
@@ -203,7 +210,7 @@ export default function DocsPage() {
                             <h3 className="text-lg font-semibold text-gray-900 mb-2">
                               {article.title}
                             </h3>
-                            {'category' in article && (
+                            {article.category && (
                               <p className="text-sm text-gray-500 mb-2">{article.category}</p>
                             )}
                             <div className="flex items-center gap-4 text-sm text-gray-500">
