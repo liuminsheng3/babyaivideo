@@ -18,9 +18,17 @@ export default function middleware(request: NextRequest) {
     return NextResponse.next();
   }
   
-  // Skip middleware for auth routes that shouldn't have locale prefix
-  if (pathname.startsWith('/auth/') || pathname.startsWith('/api/')) {
-    console.log('[Middleware] Skipping for auth/api route:', pathname);
+  // Redirect /auth/signup and /auth/signin to localized versions
+  if (pathname === '/auth/signup') {
+    return NextResponse.redirect(new URL('/en/auth/signup', request.url));
+  }
+  if (pathname === '/auth/signin') {
+    return NextResponse.redirect(new URL('/en/auth/signin', request.url));
+  }
+  
+  // Skip middleware for API routes
+  if (pathname.startsWith('/api/')) {
+    console.log('[Middleware] Skipping for api route:', pathname);
     return NextResponse.next();
   }
   
