@@ -26,7 +26,7 @@ export default function StatusPage() {
     return () => clearInterval(timer);
   }, []);
 
-  const overallStatus = 'operational'; // operational, degraded, partial, major
+  const overallStatus: 'operational' | 'degraded' | 'partial' | 'major' = 'operational';
 
   const services = [
     {
