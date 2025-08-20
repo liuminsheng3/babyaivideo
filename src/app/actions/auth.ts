@@ -93,18 +93,28 @@ export async function signInWithGoogle() {
         origin = host ? `${proto}://${host}` : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
       }
     }
+    
+    // Ensure we're using the correct production URL
+    if (origin.includes('vercel.app')) {
+      origin = 'https://babyaivideo.com';
+    }
 
     console.log('OAuth configuration:', {
       origin,
       env: process.env.NODE_ENV,
       vercel: process.env.VERCEL,
-      siteUrl: process.env.NEXT_PUBLIC_SITE_URL
+      siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
+      redirectTo: `${origin}/auth/callback`
     });
 
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
         redirectTo: `${origin}/auth/callback`,
+        queryParams: {
+          access_type: 'offline',
+          prompt: 'consent',
+        },
       },
     });
 
@@ -114,6 +124,7 @@ export async function signInWithGoogle() {
     }
 
     if (data.url) {
+      console.log('OAuth URL generated:', data.url);
       // Return the URL for client-side redirect
       return { url: data.url };
     }
@@ -144,12 +155,18 @@ export async function signInWithGitHub() {
         origin = host ? `${proto}://${host}` : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
       }
     }
+    
+    // Ensure we're using the correct production URL
+    if (origin.includes('vercel.app')) {
+      origin = 'https://babyaivideo.com';
+    }
 
     console.log('GitHub OAuth configuration:', {
       origin,
       env: process.env.NODE_ENV,
       vercel: process.env.VERCEL,
-      siteUrl: process.env.NEXT_PUBLIC_SITE_URL
+      siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
+      redirectTo: `${origin}/auth/callback`
     });
 
     const { data, error } = await supabase.auth.signInWithOAuth({
@@ -165,6 +182,7 @@ export async function signInWithGitHub() {
     }
 
     if (data.url) {
+      console.log('OAuth URL generated:', data.url);
       // Return the URL for client-side redirect
       return { url: data.url };
     }

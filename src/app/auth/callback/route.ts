@@ -40,30 +40,49 @@ export async function GET(request: NextRequest) {
       console.log('🔄 Exchanging code for session...');
       const { data, error: sessionError } = await supabase.auth.exchangeCodeForSession(code);
       
-      if (!sessionError && data?.session) {
-        console.log('✅ Auth successful!');
-        console.log('👤 User:', data.session.user.email);
-        console.log('📍 Redirecting to:', next);
-        
-        // Add a small delay to ensure session is properly set
-        const response = NextResponse.redirect(new URL(next, requestUrl.origin));
-        
-        // Set a cookie to track successful auth
-        response.cookies.set('auth-success', 'true', {
-          httpOnly: true,
-          secure: process.env.NODE_ENV === 'production',
-          sameSite: 'lax',
-          maxAge: 5 // 5 seconds
-        });
-        
-        return response;
-      } else {
+      if (sessionError) {
         console.error('❌ Session exchange error:', sessionError);
-        // Authentication failed, redirect to sign in with error
         return NextResponse.redirect(
-          new URL(`/en/auth/signin?error=${encodeURIComponent(sessionError?.message || 'Failed to authenticate')}`, requestUrl.origin)
+          new URL(`/en/auth/signin?error=${encodeURIComponent(sessionError.message || 'Failed to authenticate')}`, requestUrl.origin)
         );
       }
+      
+      if (!data?.session) {
+        console.error('❌ No session data received');
+        return NextResponse.redirect(
+          new URL('/en/auth/signin?error=No%20session%20created', requestUrl.origin)
+        );
+      }
+      
+      console.log('✅ Auth successful!');
+      console.log('👤 User:', data.session.user.email);
+      console.log('📍 Redirecting to:', next);
+      
+      // Verify session is active
+      const { data: { session: verifySession } } = await supabase.auth.getSession();
+      console.log('🔍 Session verification:', verifySession ? 'Active' : 'Not found');
+      
+      // Force redirect with a fresh response
+      const redirectUrl = new URL(next, requestUrl.origin);
+      console.log('🚀 Final redirect URL:', redirectUrl.toString());
+      
+      const response = NextResponse.redirect(redirectUrl);
+      
+      // Set multiple cookies to ensure session persistence
+      response.cookies.set('auth-success', 'true', {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
+        maxAge: 10,
+        path: '/'
+      });
+      
+      // Add cache control headers to prevent browser caching issues
+      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      response.headers.set('Pragma', 'no-cache');
+      response.headers.set('Expires', '0');
+      
+      return response;
     } catch (err) {
       console.error('💥 Unexpected error in auth callback:', err);
       // Log more details about the error
@@ -72,13 +91,6 @@ export async function GET(request: NextRequest) {
           message: err.message,
           stack: err.stack
         });
-      }
-      
-      // Redirect to debug page for development
-      if (process.env.NODE_ENV === 'development') {
-        return NextResponse.redirect(
-          new URL('/en/auth/debug', requestUrl.origin)
-        );
       }
       
       return NextResponse.redirect(
