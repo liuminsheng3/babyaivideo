@@ -62,6 +62,27 @@ export async function GET(request: NextRequest) {
       const { data: { session: verifySession } } = await supabase.auth.getSession();
       console.log('🔍 Session verification:', verifySession ? 'Active' : 'Not found');
       
+      // Check if this is a new user (first login)
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('id')
+        .eq('id', data.session.user.id)
+        .single();
+      
+      if (!profile) {
+        // Create profile for new user
+        console.log('📝 Creating profile for new user');
+        await supabase.from('profiles').insert({
+          id: data.session.user.id,
+          email: data.session.user.email,
+          full_name: data.session.user.user_metadata?.full_name || '',
+          avatar_url: data.session.user.user_metadata?.avatar_url || '',
+          credits: 10, // Give new users 10 free credits
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        });
+      }
+      
       // Force redirect with a fresh response
       const redirectUrl = new URL(next, requestUrl.origin);
       console.log('🚀 Final redirect URL:', redirectUrl.toString());
