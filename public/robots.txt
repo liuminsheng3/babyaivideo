@@ -1,4 +1,29 @@
+# Robots.txt for BabyAI Video
+# https://www.babyaivideo.com
+
 User-agent: *
 Allow: /
 
+# Block authentication and private pages from indexing
+Disallow: /auth/
+Disallow: /*/auth/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /_next/
+Disallow: /auth/callback
+
+# Allow specific important pages
+Allow: /en
+Allow: /zh
+Allow: /en/pricing
+Allow: /zh/pricing
+Allow: /en/about
+Allow: /zh/about
+Allow: /en/contact
+Allow: /zh/contact
+
+# Sitemap location
 Sitemap: https://www.babyaivideo.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
