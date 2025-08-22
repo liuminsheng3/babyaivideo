@@ -11,25 +11,7 @@ const nextConfig = {
   // Handle redirects properly for SEO
   async redirects() {
     return [
-      // Redirect non-www to www
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'babyaivideo.com',
-          },
-        ],
-        destination: 'https://www.babyaivideo.com/:path*',
-        permanent: true, // 301 redirect
-      },
-      // Redirect trailing slashes
-      {
-        source: '/:path+/',
-        destination: '/:path+',
-        permanent: true,
-      },
-      // Specific page redirects
+      // Specific page redirects only - no domain redirects here
       {
         source: '/signin',
         destination: '/en/auth/signin',
